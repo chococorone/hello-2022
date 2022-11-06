@@ -14,6 +14,9 @@
 * Room を試した
   * https://developer.android.com/training/data-storage/room?hl=ja#java
   * rxjavaで非同期にroomで用意したインターフェースを叩いてみた
+* Room + ViewModel + Databindingを試した
+  * view層は、データの更新で何が行われているかを関知せず、渡されたデータをただ描く
+
 ### py/html-parse.py
 * chromeのブックマークエクスポートしてでてきたhtmlファイルをparseしてdbファイルにしてみた
   * Roomで読みこむための材料にした
