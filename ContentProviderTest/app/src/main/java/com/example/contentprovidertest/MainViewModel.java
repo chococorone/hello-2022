@@ -66,4 +66,9 @@ public class MainViewModel extends ViewModel {
         mCount.setValue(count);
     }
 
+    public void onClickItem() {
+        Log.d(TAG, "onClickItem");
+
+    }
+
 }
