@@ -16,6 +16,11 @@
   * rxjavaで非同期にroomで用意したインターフェースを叩いてみた
 * Room + ViewModel + Databindingを試した
   * view層は、データの更新で何が行われているかを関知せず、渡されたデータをただ描く
+* RecyclerView + Databindingを試した
+  * Adapterは公式が用意してくれているListAdapterを継承して作ってみた
+    * 実装が楽になるらしいが、楽になる前を知らないのでよくわからず
+  * viewHolderは個々のviewのbindingを持つ(databindingしてないときは個々のviewの参照を持つ)
+  * AdapterはviewHolderを作ったり、返したり
 
 ### py/html-parse.py
 * chromeのブックマークエクスポートしてでてきたhtmlファイルをparseしてdbファイルにしてみた
