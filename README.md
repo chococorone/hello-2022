@@ -22,6 +22,10 @@
   * viewHolderは個々のviewのbindingを持つ(databindingしてないときは個々のviewの参照を持つ)
   * AdapterはviewHolderを作ったり、返したり
 
+* RecyclerViewで表示しているリストを、searchViewに入れた文字列で部分一致検索絞り込みしてみた
+  * SearchViewを新たに追加して、そのクリックリスナーでdaoで定義している部分一致検索を実行
+    * 実行結果はviewmodelで保持しているMutableLiveDataに格納することで、自動でViewに反映される
+
 ### py/html-parse.py
 * chromeのブックマークエクスポートしてでてきたhtmlファイルをparseしてdbファイルにしてみた
   * Roomで読みこむための材料にした
