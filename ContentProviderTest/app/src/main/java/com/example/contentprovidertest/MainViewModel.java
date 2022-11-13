@@ -71,4 +71,17 @@ public class MainViewModel extends ViewModel {
 
     }
 
+    public void searchTitle(String newText){
+        BookmarkDao bookmarkDao = MyApplication.mBookmarkDatabase.bookmarkDao();
+        mDisposable.add(
+                bookmarkDao.findByTitle(newText)
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe( result -> {
+                            Log.d(TAG, "result size =" + result.size());
+                            mBookmarks.setValue(result);
+                        })
+        );
+    }
+
 }

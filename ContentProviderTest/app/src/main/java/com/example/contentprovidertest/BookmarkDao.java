@@ -15,9 +15,7 @@ public interface BookmarkDao {
     @Query("SELECT * FROM bookmarks WHERE id IN (:bookmarkIds)")
     List<Bookmark> loadAllByIds(int[] bookmarkIds);
 
-    // TODO: 2022/11/03  前方一致で検索させたい
-    @Query("SELECT * FROM bookmarks WHERE title LIKE :word LIMIT 1")
-    Bookmark findByTitle(String word);
-
+    @Query("SELECT * FROM bookmarks WHERE title LIKE '%' || :word || '%' ")
+    Single<List<Bookmark>> findByTitle(String word);
 
 }

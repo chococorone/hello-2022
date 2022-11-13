@@ -1,6 +1,7 @@
 package com.example.contentprovidertest;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -60,6 +61,21 @@ public class MainActivity extends AppCompatActivity {
         //adapterには値の変更を通知してやるためにsubmitList関数を読んでやらないといけない //これはActivityにかいていていいのかな... bookmarksの個数が変わったらどうなるのだろう
         mainViewModel.getBookmarks().observe(this, bookmarks -> {
             adapter.submitList(bookmarks);
+        });
+
+        //searchViewへの何やるか設定
+        binding.mySearch.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                binding.mySearch.clearFocus();
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                mainViewModel.searchTitle(newText);
+                return true;
+            }
         });
     }
 

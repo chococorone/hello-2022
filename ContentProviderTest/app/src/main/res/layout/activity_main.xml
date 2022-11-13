@@ -26,10 +26,21 @@
             android:layout_height="wrap_content"
             android:text="@{viewModel.bookmarks.get(viewModel.count).title + viewModel.count}"
             android:onClick="@{ () -> viewModel.onClick()}"
-            app:layout_constraintBottom_toTopOf="@id/my_list"
+            app:layout_constraintBottom_toTopOf="@id/my_search"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- focus当てないと検索部分が開かないのが気に食わない /-->
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/my_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:queryHint="タイトル検索"
+            app:layout_constraintTop_toBottomOf="@id/my_text"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/my_list" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/my_list"
@@ -38,7 +49,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/my_text" />
+            app:layout_constraintTop_toBottomOf="@id/my_search" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
